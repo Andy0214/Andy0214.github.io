@@ -1,9 +1,9 @@
 ---
 layout:     post
-title:      BYPhoneNumTF
+title:      AndyPhoneNumTF
 subtitle:   一个电话号码格式的文本框
 date:       2017-02-04
-author:     BY
+author:     Andy
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
@@ -11,7 +11,7 @@ tags:
     - 轮子
 ---
 
->**BYPhoneNumTF** 一个电话号码格式的文本框
+>**AndyPhoneNumTF** 一个电话号码格式的文本框
 
 # 功能
 
@@ -153,7 +153,7 @@ tags:
     if (!string) {
         return nil;
     }
-    NSMutableString* mStr = [NSMutableString stringWithString:[string stringByReplacingOccurrencesOfString:placeholder withString:@""]];
+    NSMutableString* mStr = [NSMutableString stringWithString:[string stringAndyReplacingOccurrencesOfString:placeholder withString:@""]];
     if (mStr.length >3) {
         [mStr insertString:placeholder atIndex:3];
     }if (mStr.length > 8) {
@@ -168,7 +168,7 @@ tags:
 /** 获取正常电话号码（去掉空格） */
 - (NSString*)_noneSpaseString:(NSString*)string{
     
-    return [string stringByReplacingOccurrencesOfString:placeholder withString:@""];
+    return [string stringAndyReplacingOccurrencesOfString:placeholder withString:@""];
     
 }
 
@@ -178,7 +178,7 @@ tags:
         return NO;
     }
     
-    checkedNumString = [checkedNumString stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+    checkedNumString = [checkedNumString stringAndyTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
     
     if(checkedNumString.length > 0) {
         return NO;
@@ -197,10 +197,10 @@ tags:
 
 ```
 //
-//  BYPhoneNumTF.h
+//  AndyPhoneNumTF.h
 //
-//  Created by BY on 16/12/2.
-//  Copyright © 2016年 BY. All rights reserved.
+//  Created Andy Andy on 16/12/2.
+//  Copyright © 2016年 Andy. All rights reserved.
 //  电话号码类型的文本输入框，且只能输入数字
 //  输入显示：137 9922 1234 或 137-9922-1234
 //  使用方法：在XIB中的TextField继承该类即可
@@ -211,7 +211,7 @@ tags:
 // @" " or @"-"
 #define placeholder @" "
 
-@interface BYPhoneNumTF : UITextField
+@interface AndyPhoneNumTF : UITextField
 
 /** 去掉格式的电话号码 */
 @property (nonatomic, strong) NSString *plainPhoneNum;
@@ -221,21 +221,21 @@ tags:
 
 ```
 //
-//  BYPhoneNumTF.m
+//  AndyPhoneNumTF.m
 //  dev-Jack
 //
-//  Created by BY on 16/12/2.
+//  Created Andy Andy on 16/12/2.
 //  Copyright © 2016年 Jack. All rights reserved.
 //
 
-#import "BYPhoneNumTF.h"
+#import "AndyPhoneNumTF.h"
 
 
-@interface BYPhoneNumTF ()<UITextFieldDelegate>
+@interface AndyPhoneNumTF ()<UITextFieldDelegate>
 
 @end
 
-@implementation BYPhoneNumTF
+@implementation AndyPhoneNumTF
 
 - (NSString *)plainPhoneNum {
     return [self _noneSpaseString:self.text];
@@ -350,7 +350,7 @@ tags:
     if (!string) {
         return nil;
     }
-    NSMutableString* mStr = [NSMutableString stringWithString:[string stringByReplacingOccurrencesOfString:placeholder withString:@""]];
+    NSMutableString* mStr = [NSMutableString stringWithString:[string stringAndyReplacingOccurrencesOfString:placeholder withString:@""]];
     if (mStr.length >3) {
         [mStr insertString:placeholder atIndex:3];
     }if (mStr.length > 8) {
@@ -365,7 +365,7 @@ tags:
 /** 获取正常电话号码（去掉空格） */
 - (NSString*)_noneSpaseString:(NSString*)string{
     
-    return [string stringByReplacingOccurrencesOfString:placeholder withString:@""];
+    return [string stringAndyReplacingOccurrencesOfString:placeholder withString:@""];
     
 }
 
@@ -375,7 +375,7 @@ tags:
         return NO;
     }
     
-    checkedNumString = [checkedNumString stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+    checkedNumString = [checkedNumString stringAndyTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
     
     if(checkedNumString.length > 0) {
         return NO;
@@ -392,6 +392,6 @@ tags:
 
 # 使用方法
 
-在storyboard中的`TextField`控件的Calss类型选择该类`BYPhoneNumTF`即可。
+在storyboard中的`TextField`控件的Calss类型选择该类`AndyPhoneNumTF`即可。
 
-代码及Demo下载地址：[BYPhoneNumTF](https://github.com/qiubaiying/BYPhoneNumTF)
+代码及Demo下载地址：[AndyPhoneNumTF](https://github.com/Andy/AndyPhoneNumTF)

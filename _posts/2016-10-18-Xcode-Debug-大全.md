@@ -3,7 +3,7 @@ layout:     post
 title:      Xcode Debug 大全
 subtitle:   iOS开发中利用 Xcode 各种调试Bug方法
 date:       2016-10-18
-author:     BY
+author:     Andy
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
@@ -229,7 +229,7 @@ instruments Xcode自带许多工具供大家使用，打开方式如下图：
 
 启用视图调试:运行app过程中，按下底部的Debug View Hierarchy 按钮，或者从菜单中选择Debug > View Debugging > Capture View Hierarchy 来启动视图调试。
 
-![](http://ww1.sinaimg.cn/large/006y8lVagw1f8vejy3rmgj30by01kmx8.jpg)
+![](http://ww1.sinaimg.cn/large/006y8lVagw1f8vejy3rmgj30Andy01kmx8.jpg)
 
 启动视图调试后，Xcode会对应用程序的视图层次拍一个快照并展示三维原型视图来探究用户界面的层级。该三维视图除了展示app的视图层次外，还展示每个视图的位置、顺序和视图尺寸，以及视图间的交互方式。
 

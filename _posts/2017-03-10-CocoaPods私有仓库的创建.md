@@ -3,7 +3,7 @@ layout:     post
 title:      CocoaPods私有仓库的创建
 subtitle:   继续带你创建 CocoaPods 私有有仓库
 date:       2017-03-10
-author:     BY
+author:     Andy
 header-img: img/post-bg-iWatch.jpg
 catalog: true
 tags:
@@ -12,9 +12,9 @@ tags:
     - Git
 ---
 
-> 本文发布于 [BY Blog](http://qiubaiying.github.io)、[简书](http://www.jianshu.com/p/d2d98298b1b8) 转载请保留链接
+> 本文发布于 [Andy Blog](http://Andy.github.io)、[简书](http://www.jianshu.com/p/d2d98298b1b8) 转载请保留链接
 > 
-> 上一篇文章 [《CocoaPods公有仓库的创建》](http://qiubaiying.top/2017/03/08/CocoaPods公有仓库的创建/)
+> 上一篇文章 [《CocoaPods公有仓库的创建》](http://Andy.top/2017/03/08/CocoaPods公有仓库的创建/)
 
 # 前言
 
@@ -26,7 +26,7 @@ tags:
 
 虽然也能用，但是和CocoaPods本身的结构设计就不相符。
 
-在上一篇[《CocoaPods公有仓库的创建》](http://qiubaiying.top/2017/03/08/CocoaPods公有仓库的创建/)中我们了解到，`master` 目录中只存放 代码库 的描述文件，而不是存放代码。就像这样
+在上一篇[《CocoaPods公有仓库的创建》](http://Andy.top/2017/03/08/CocoaPods公有仓库的创建/)中我们了解到，`master` 目录中只存放 代码库 的描述文件，而不是存放代码。就像这样
 
 ![](https://ww4.sinaimg.cn/large/006tKfTcgy1fdgf4l54rxj30ya09ujst.jpg)
 
@@ -85,7 +85,7 @@ tags:
 
 或者 **强烈建议** 直接拷贝下面的模板进行修改
 
-```ruby
+```ruAndy
 Pod::Spec.new do |s|
   s.name         = "MyAdditions" # 项目名称
   s.version      = "0.0.1"        # 版本号 与 你仓库的 标签号 对应
@@ -94,15 +94,15 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://git.oschina.net/baiyingqiu/MyAdditions" # 仓库的主页
   s.source       = { :git => "https://git.oschina.net/baiyingqiu/MyAdditions.git", :tag => "#{s.version}" }#你的仓库地址，不能用SSH地址
-  s.source_files = "MyAdditions/*.{h,m}" # 你代码的位置， BYPhoneNumTF/*.{h,m} 表示 BYPhoneNumTF 文件夹下所有的.h和.m文件
+  s.source_files = "MyAdditions/*.{h,m}" # 你代码的位置， AndyPhoneNumTF/*.{h,m} 表示 AndyPhoneNumTF 文件夹下所有的.h和.m文件
   s.requires_arc = true # 是否启用ARC
   s.platform     = :ios, "7.0" #平台及支持的最低版本
   # s.frameworks   = "UIKit", "Foundation" #支持的框架
   # s.dependency   = "AFNetworking" # 依赖库
   
   # User
-  s.author             = { "BY" => "qiubaiyingios@163.com" } # 作者信息
-  s.social_media_url   = "http://qiubaiying.github.io" # 个人主页
+  s.author             = { "Andy" => "Andyios@163.com" } # 作者信息
+  s.social_media_url   = "http://Andy.github.io" # 个人主页
 
 end
 ```
@@ -190,9 +190,9 @@ end
 	target ‘MyPodTest’ do
 	use_frameworks!
 	
-	pod “BYPhoneNumTF” #公有库
+	pod “AndyPhoneNumTF” #公有库
 	pod ‘MyAdditions’ #我们的私有库
-	pod ‘BYAdditions’ #这是我又添加到版本库中的另一个代码库
+	pod ‘AndyAdditions’ #这是我又添加到版本库中的另一个代码库
 	
 	end
 
@@ -221,7 +221,7 @@ end
 
 # 结语
 
-通过 [《CocoaPods私有仓库的创建》](http://qiubaiying.top/2017-03-10-CocoaPods私有仓库的创建/) 和 [《CocoaPods公有仓库的创建](http://qiubaiying.top/2017/03/08/CocoaPods公有仓库的创建/)》这两篇文章，相信大家对CocoaPods的工作原理都有了更深层次的了解。
+通过 [《CocoaPods私有仓库的创建》](http://Andy.top/2017-03-10-CocoaPods私有仓库的创建/) 和 [《CocoaPods公有仓库的创建](http://Andy.top/2017/03/08/CocoaPods公有仓库的创建/)》这两篇文章，相信大家对CocoaPods的工作原理都有了更深层次的了解。
 
 在写博客和和创建的过程中，踩了不少的坑（😀前人教程留下的），很多的东西只有自己操作完才能真正的领会。
 

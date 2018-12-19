@@ -3,7 +3,7 @@ layout:     post
 title:      Objective-C Runtime 基本使用
 subtitle:   Runtime 使用案例
 date:       2017-02-04
-author:     BY
+author:     Andy
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
@@ -477,7 +477,7 @@ propertyAttributes:T@"NSString",&,N
 
 当然，平时使用我们并不会这么做，当我们要在系统提供的方法上再扩充功能时(不能重写系统方法)，就可以使用`Method Swizzling`.
 
-我们给`NSArray`添加一个分类`AddLog`,给 `arrayByAddingObject:`方法添加一个输出方法：
+我们给`NSArray`添加一个分类`AddLog`,给 `arrayAndyAddingObject:`方法添加一个输出方法：
 
 ```
 #import "NSArray+AddLog.h"
@@ -487,8 +487,8 @@ propertyAttributes:T@"NSString",&,N
 
 + (void)load {
 
-    SEL ori_selector = @selector(arrayByAddingObject:);
-    SEL my_selector = @selector(my_arrayByAddingObject:);
+    SEL ori_selector = @selector(arrayAndyAddingObject:);
+    SEL my_selector = @selector(my_arrayAndyAddingObject:);
     
     Method ori_method = class_getInstanceMethod([NSArray class], ori_selector);
     Method my_method  = class_getInstanceMethod([NSArray class], my_selector);
@@ -503,9 +503,9 @@ propertyAttributes:T@"NSString",&,N
 
 }
 
-- (NSArray *)my_arrayByAddingObject:(id)anObject {
+- (NSArray *)my_arrayAndyAddingObject:(id)anObject {
 
-    NSArray *array = [self my_arrayByAddingObject:anObject];
+    NSArray *array = [self my_arrayAndyAddingObject:anObject];
     NSLog(@"添加了一个元素 %@", anObject);
     return array;
 }
@@ -521,23 +521,23 @@ propertyAttributes:T@"NSString",&,N
 
 这里我们先使用 `class_addMethod()` 在类中添加方法，若返回Yes说明类中没有该方法，然后再使用 `class_replaceMethod()` 方法进行取代;若返回NO，说明类中有该方法，使用`method_exchangeImplementations()`直接交换两者的 `IMP`.
 
-其实在这里直接使用`method_exchangeImplementations()`进行交换就可以了。因为类中必定有`arrayByAddingObject：`方法。
+其实在这里直接使用`method_exchangeImplementations()`进行交换就可以了。因为类中必定有`arrayAndyAddingObject：`方法。
 
 
-我给我们自己的方法命名为`my_arrayByAddingObject:`,在原来的方法名上加上前缀，既可以防止命名冲突，又方便阅读，在我们`my_arrayByAddingObject:`方法中调用本身
+我给我们自己的方法命名为`my_arrayAndyAddingObject:`,在原来的方法名上加上前缀，既可以防止命名冲突，又方便阅读，在我们`my_arrayAndyAddingObject:`方法中调用本身
 
 ```
-NSArray *array = [self my_arrayByAddingObject:anObject];
+NSArray *array = [self my_arrayAndyAddingObject:anObject];
 ```
 
-看似会陷入递归调用，其实则不会，因为我们已经在`+ (void)load `方法中更换了`IMP`,他会调用`arrayByAddingObject:`方法，然后在后面添加我们需要添加的功能。
+看似会陷入递归调用，其实则不会，因为我们已经在`+ (void)load `方法中更换了`IMP`,他会调用`arrayAndyAddingObject:`方法，然后在后面添加我们需要添加的功能。
 
-`arrayByAddingObject:`方法的调用不变；
+`arrayAndyAddingObject:`方法的调用不变；
 
 
 ```
 NSArray *arr1 = @[@"one", @"two"];
-NSArray *arr2 = [arr1 arrayByAddingObject:@"three"];
+NSArray *arr2 = [arr1 arrayAndyAddingObject:@"three"];
 NSLog(@"arr2 = %@", arr2);
 ```
 
@@ -591,13 +591,13 @@ performSelector:@selector(resolveThisMethodDynamically)];
 先上代码：
 
 ```
-#import "NSObject+BYModel.h"
+#import "NSObject+AndyModel.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation NSObject (BYModel)
+@implementation NSObject (AndyModel)
 
-- (void)by_modelSetDictionary:(NSDictionary *)dic {
+- (void)Andy_modelSetDictionary:(NSDictionary *)dic {
 
     Class cls = [self class];
     
@@ -696,7 +696,7 @@ performSelector:@selector(resolveThisMethodDynamically)];
 NSDictionary *dic = @{ @"name":@"邱帅", @"age": @(23), @"idNumber":@(1234567)};
 
 Student *stu = [Student new];
-[stu by_modelSetDictionary:dic];
+[stu Andy_modelSetDictionary:dic];
 
 NSLog(@"%@", [NSString stringWithFormat:@"%@, %d, %d", stu.name, stu.age, stu.idNumber]);
 

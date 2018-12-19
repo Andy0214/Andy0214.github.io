@@ -3,7 +3,7 @@ layout:     post
 title:      Objective-C：Category
 subtitle:   深入解析 Category 的实现原理
 date:       2016-12-21
-author:     BY
+author:     Andy
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
@@ -407,8 +407,8 @@ for (uint32_t m = 0;
 运行项目，我们会看到控制台打印很多东西出来，我们只找到我们想要的信息，顺序如下：
 
 ```
-objc[1187]: REPLACED: -[MyClass printName] by category Category1
-objc[1187]: REPLACED: -[MyClass printName] by category Category2
+objc[1187]: REPLACED: -[MyClass printName] Andy category Category1
+objc[1187]: REPLACED: -[MyClass printName] Andy category Category2
 .
 .
 .
@@ -439,8 +439,8 @@ objc[1187]: LOAD: +[MyClass(Category2) load]
 ![](http://tech.meituan.com/img/diveintocategory/compile2.png)
 
 ```
-objc[1187]: REPLACED: -[MyClass printName] by category Category2
-objc[1187]: REPLACED: -[MyClass printName] by category Category1
+objc[1187]: REPLACED: -[MyClass printName] Andy category Category2
+objc[1187]: REPLACED: -[MyClass printName] Andy category Category1
 .
 .
 .
