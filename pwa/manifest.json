@@ -1,7 +1,7 @@
 {
-  "name": "Andy Blog",
-  "short_name": "Andy Blog",
-  "description": "A personal blog Andy engineer",
+  "name": "BY Blog",
+  "short_name": "BY Blog",
+  "description": "A personal blog BY engineer",
   "icons": [{
     "src": "icons/pwa_icon_128.png",
     "sizes": "128x128",

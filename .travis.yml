@@ -1,4 +1,4 @@
-language: ruAndy
+language: ruBY
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true

@@ -11,7 +11,7 @@
  */
 
 // Tooltip Init
-// Unuse Andy Hux since V1.6: Titles now display Andy default so there is no need for tooltip
+// Unuse BY Hux since V1.6: Titles now display BY default so there is no need for tooltip
 // $(function() {
 //     $("[data-toggle='tooltip']").tooltip();
 // });
@@ -19,7 +19,7 @@
 
 // make all images responsive
 /* 
- * Unuse Andy Hux
+ * Unuse BY Hux
  * actually only Portfolio-Pages can't use it and only post-img need it.
  * so I modify the _layout/post and CSS to make post-img responsive!
  */
@@ -35,9 +35,9 @@ $(document).ready(function() {
 
 // responsive embed videos
 $(document).ready(function() {
-    $('iframe[src*="youtube.com"]').wrap('<div class="embed-responsive embed-responsive-16Andy9"></div>');
+    $('iframe[src*="youtube.com"]').wrap('<div class="embed-responsive embed-responsive-16BY9"></div>');
     $('iframe[src*="youtube.com"]').addClass('embed-responsive-item');
-    $('iframe[src*="vimeo.com"]').wrap('<div class="embed-responsive embed-responsive-16Andy9"></div>');
+    $('iframe[src*="vimeo.com"]').wrap('<div class="embed-responsive embed-responsive-16BY9"></div>');
     $('iframe[src*="vimeo.com"]').addClass('embed-responsive-item');
 });
 
@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
                 var currentTop = $(window).scrollTop(),
                     $catalog = $('.side-catalog');
 
-                //check if user is scrolling up Andy mouse or keyborad
+                //check if user is scrolling up BY mouse or keyborad
                 if (currentTop < this.previousTop) {
                     //if scrolling up...
                     if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {

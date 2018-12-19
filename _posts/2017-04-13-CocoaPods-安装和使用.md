@@ -3,14 +3,14 @@ layout:     post
 title:      CocoaPods 安装和使用
 subtitle:   安装时间 2017/04/13, 环境macOS 12.10.1， cocoapod版本 1.2.1
 date:       2017-04-13
-author:     Andy
+author:     BY
 header-img: img/post-bg-hacker.jpg
 catalog: true
 tags:
     - iOS
     - Xcode
     - Cocopods
-    - ruAndy
+    - ruBY
 ---
 
 # 前言
@@ -25,43 +25,43 @@ tags:
 
 ## 安装
 
-**CocoaPods** 是用 ruAndy 实现的，要想使用它首先需要有 ruAndy 的环境。
+**CocoaPods** 是用 ruBY 实现的，要想使用它首先需要有 ruBY 的环境。
 
-#### 升级ruAndy
+#### 升级ruBY
 
-	查看ruAndy版本 
-	$ ruAndy -v
+	查看ruBY版本 
+	$ ruBY -v
 	
-	ruAndy 2.0.0p648 (2015-12-16 revision 53162) [universal.x86_64-darwin16]
+	ruBY 2.0.0p648 (2015-12-16 revision 53162) [universal.x86_64-darwin16]
 
-CocoaPods需要**2.2.2**版本及以上的，我们先升级ruAndy。
+CocoaPods需要**2.2.2**版本及以上的，我们先升级ruBY。
 
-使用 **rvm** 安装 ruAndy
+使用 **rvm** 安装 ruBY
 	
 	curl -L get.rvm.io | bash -s stable 
 	source ~/.bashrc
 	source ~/.bash_profile
 
-切换 ruAndy 源
+切换 ruBY 源
 
-ruAndy 下载源使用亚马逊的云服务被墙了，切换国内的 **ruAndy-china源** （<https://ruAndy.taobao.org/>已经停止维护，详情[查看公告](https://ruAndy.taobao.org/)）：
+ruBY 下载源使用亚马逊的云服务被墙了，切换国内的 **ruBY-china源** （<https://ruBY.taobao.org/>已经停止维护，详情[查看公告](https://ruBY.taobao.org/)）：
 
-	$ gem sources --add https://gems.ruAndy-china.org/ --remove https://ruAndygems.org/
+	$ gem sources --add https://gems.ruBY-china.org/ --remove https://ruBYgems.org/
 	$ gem sources -l
 	*** CURRENT SOURCES ***
 	
-	https://gems.ruAndy-china.org
+	https://gems.ruBY-china.org
 	
-安装并切换 ruAndy
+安装并切换 ruBY
 
-> 这里不建议安装最新的 2.4.0 版本，因为次版本的 ruAndy，在xcodebuild 自动打包时，会出现问题！ 所以退一步，安装 2.3.3版本~
+> 这里不建议安装最新的 2.4.0 版本，因为次版本的 ruBY，在xcodebuild 自动打包时，会出现问题！ 所以退一步，安装 2.3.3版本~
 
 	rvm install 2.3.3 --disable-binary
 	rvm use 2.3.3 --default
 	
-到此ruAndy升级完毕.
+到此ruBY升级完毕.
 
-有关RVM的使用可以看这篇 [RVM 使用指南](http://Andy.github.io/2017/04/28/RVM-使用指南/)
+有关RVM的使用可以看这篇 [RVM 使用指南](http://BY.github.io/2017/04/28/RVM-使用指南/)
 
 #### 安装CocoaPods
 
@@ -175,7 +175,7 @@ end
 	
 若对 CocoaPods 的**个人仓库**感兴趣，也可以看看我的这两篇博客
 
-- [CocoaPods公有仓库的创建](http://Andy.top/2017/03/08/CocoaPods%E5%85%AC%E6%9C%89%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%9B%E5%BB%BA/)
-- [CocoaPods私有仓库的创建](http://Andy.top/2017/03/10/CocoaPods%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%9B%E5%BB%BA/)
+- [CocoaPods公有仓库的创建](http://BY.top/2017/03/08/CocoaPods%E5%85%AC%E6%9C%89%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%9B%E5%BB%BA/)
+- [CocoaPods私有仓库的创建](http://BY.top/2017/03/10/CocoaPods%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%9B%E5%BB%BA/)
  
- > 本文首次发布于 [Andy Blog](http://Andy.github.io), 作者 [@Andy(Andy)](http://github.com/Andy) ,转载请保留原文链接.
+ > 本文首次发布于 [BY Blog](http://BY.github.io), 作者 [@BY(BY)](http://github.com/BY) ,转载请保留原文链接.

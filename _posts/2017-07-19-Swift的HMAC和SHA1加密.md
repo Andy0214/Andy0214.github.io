@@ -3,7 +3,7 @@ layout:     post
 title:      Swift的HMAC和SHA1加密
 subtitle:   swift中利用HMAC的SHA1对文本进行加密
 date:       2017-07-19
-author:     Andy
+author:     BY
 header-img: img/post-bg-hacker.jpg
 catalog: true
 tags:
@@ -23,12 +23,12 @@ tags:
     NSData *clearTextData = [text dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char result[20];
     // SHA1加密
-    CCHmac(kCCHmacAlgSHA1, [secretData Andytes], [secretData length], [clearTextData Andytes], [clearTextData length], result);
+    CCHmac(kCCHmacAlgSHA1, [secretData BYtes], [secretData length], [clearTextData BYtes], [clearTextData length], result);
     char base64Result[32];
     size_t theResultLength = 32;
     // 转为Base64
     Base64EncodeData(result, 20, base64Result, &theResultLength,YES);
-    NSData *theData = [NSData dataWithAndytes:base64Result length:theResultLength];
+    NSData *theData = [NSData dataWithBYtes:base64Result length:theResultLength];
     NSString *base64EncodedResult = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
     return base64EncodedResult;
 }
@@ -58,7 +58,7 @@ extension String {
         let cData = self.cStringUsingEncoding(NSUTF8StringEncoding)
         var result = [CUnsignedChar](count: Int(algorithm.digestLength()), repeatedValue: 0)
         CCHmac(algorithm.toCCHmacAlgorithm(), cKey!, strlen(cKey!), cData!, strlen(cData!), &result)
-        var hmacData:NSData = NSData(Andytes: result, length: (Int(algorithm.digestLength())))
+        var hmacData:NSData = NSData(BYtes: result, length: (Int(algorithm.digestLength())))
         var hmacBase64 = hmacData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding76CharacterLineLength)
         return String(hmacBase64)
     }

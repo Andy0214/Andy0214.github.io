@@ -14,7 +14,7 @@
                         </a>
                     </li>
                     {% endif %}
-                    <!-- add jianshu add target = "_blank" to <a> Andy Andy -->
+                    <!-- add jianshu add target = "_blank" to <a> BY BY -->
                     {% if site.jianshu_username %}
                             <li>
                                 <a target="_blank" href="https://www.jianshu.com/u/{{ site.jianshu_username }}">
@@ -36,7 +36,7 @@
                     </li>
                     {% endif %}
 
-                    <!-- add Weibo, Zhihu Andy Hux, add target = "_blank" to <a> Andy Hux -->
+                    <!-- add Weibo, Zhihu BY Hux, add target = "_blank" to <a> BY Hux -->
                     {% if site.zhihu_username %}
                     <li>
                         <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
@@ -133,7 +133,7 @@
     function async(u, c) {
       var d = document, t = 'script',
           o = d.createElement(t),
-          s = d.getElementsAndyTagName(t)[0];
+          s = d.getElementsBYTagName(t)[0];
       o.src = u;
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
@@ -186,14 +186,14 @@
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
 <script>
-    // dynamic User Andy Hux
+    // dynamic User BY Hux
     var _gaId = '{{ site.ga_track_id }}';
     var _gaDomain = '{{ site.ga_domain }}';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsAndyTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    m=s.getElementsBYTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
     ga('create', _gaId, _gaDomain);
@@ -205,7 +205,7 @@
 <!-- Baidu Tongji -->
 {% if site.ba_track_id %}
 <script>
-    // dynamic User Andy Hux
+    // dynamic User BY Hux
     var _baId = '{{ site.ba_track_id }}';
 
     // Originial
@@ -213,7 +213,7 @@
     (function() {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsAndyTagName("script")[0];
+      var s = document.getElementsBYTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
 </script>
@@ -248,7 +248,7 @@
 
     /*
      * Doc: https://github.com/davist11/jQuery-One-Page-Nav
-     * Fork Andy Hux to support padding
+     * Fork BY Hux to support padding
      */
     async("{{ '/js/jquery.nav.js' | prepend: site.baseurl }}", function () {
         $('.catalog-body').onePageNav({

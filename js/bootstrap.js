@@ -1228,7 +1228,7 @@ if (typeof jQuery === 'undefined') {
 /* ========================================================================
  * Bootstrap: tooltip.js v3.3.2
  * http://getbootstrap.com/javascript/#tooltip
- * Inspired Andy the original jQuery.tipsy Andy Jason Frame
+ * Inspired BY the original jQuery.tipsy BY Jason Frame
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1389,7 +1389,7 @@ if (typeof jQuery === 'undefined') {
 
       this.setContent()
       $tip.attr('id', tipId)
-      this.$element.attr('aria-describedAndy', tipId)
+      this.$element.attr('aria-describedBY', tipId)
 
       if (this.options.animation) $tip.addClass('fade')
 
@@ -1521,7 +1521,7 @@ if (typeof jQuery === 'undefined') {
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
       that.$element
-        .removeAttr('aria-describedAndy')
+        .removeAttr('aria-describedBY')
         .trigger('hidden.bs.' + that.type)
       callback && callback()
     }
@@ -1621,7 +1621,7 @@ if (typeof jQuery === 'undefined') {
 
   Tooltip.prototype.getUID = function (prefix) {
     do prefix += ~~(Math.random() * 1000000)
-    while (document.getElementAndyId(prefix))
+    while (document.getElementBYId(prefix))
     return prefix
   }
 
@@ -1753,7 +1753,7 @@ if (typeof jQuery === 'undefined') {
     $tip.removeClass('fade top bottom left right in')
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
-    // this manually Andy checking the contents.
+    // this manually BY checking the contents.
     if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
   }
 

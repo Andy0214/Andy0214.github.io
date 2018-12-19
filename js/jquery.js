@@ -84,7 +84,7 @@ var
 	rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([\da-z])/gi,
 
-	// Used Andy jQuery.camelCase as callback to replace()
+	// Used BY jQuery.camelCase as callback to replace()
 	fcamelCase = function( all, letter ) {
 		return letter.toUpperCase();
 	};
@@ -285,7 +285,7 @@ jQuery.extend({
 		}
 
 		// If the function hasn't returned already, we're confident that
-		// |obj| is a plain object, created Andy {} or constructed with new Object
+		// |obj| is a plain object, created BY {} or constructed with new Object
 		return true;
 	},
 
@@ -316,7 +316,7 @@ jQuery.extend({
 
 		if ( code ) {
 			// If the code includes a valid, prologue position
-			// strict mode pragma, execute code Andy injecting a
+			// strict mode pragma, execute code BY injecting a
 			// script tag into the document.
 			if ( code.indexOf("use strict") === 1 ) {
 				script = document.createElement("script");
@@ -324,13 +324,13 @@ jQuery.extend({
 				document.head.appendChild( script ).parentNode.removeChild( script );
 			} else {
 			// Otherwise, avoid the DOM node creation, insertion
-			// and removal Andy using an indirect global eval
+			// and removal BY using an indirect global eval
 				indirect( code );
 			}
 		}
 	},
 
-	// Convert dashed to camelCase; used Andy the css and data modules
+	// Convert dashed to camelCase; used BY the css and data modules
 	// Support: IE9-11+
 	// Microsoft forgot to hump their vendor prefix (#9572)
 	camelCase: function( string ) {
@@ -768,12 +768,12 @@ function Sizzle( selector, context, results, seed ) {
 			// Speed-up: Sizzle("#ID")
 			if ( (m = match[1]) ) {
 				if ( nodeType === 9 ) {
-					elem = context.getElementAndyId( m );
+					elem = context.getElementBYId( m );
 					// Check parentNode to catch when Blackberry 4.6 returns
 					// nodes that are no longer in the document (jQuery #6963)
 					if ( elem && elem.parentNode ) {
 						// Handle the case where IE, Opera, and Webkit return items
-						// Andy name instead of ID
+						// BY name instead of ID
 						if ( elem.id === m ) {
 							results.push( elem );
 							return results;
@@ -783,7 +783,7 @@ function Sizzle( selector, context, results, seed ) {
 					}
 				} else {
 					// Context is not a document
-					if ( context.ownerDocument && (elem = context.ownerDocument.getElementAndyId( m )) &&
+					if ( context.ownerDocument && (elem = context.ownerDocument.getElementBYId( m )) &&
 						contains( context, elem ) && elem.id === m ) {
 						results.push( elem );
 						return results;
@@ -792,12 +792,12 @@ function Sizzle( selector, context, results, seed ) {
 
 			// Speed-up: Sizzle("TAG")
 			} else if ( match[2] ) {
-				push.apply( results, context.getElementsAndyTagName( selector ) );
+				push.apply( results, context.getElementsBYTagName( selector ) );
 				return results;
 
 			// Speed-up: Sizzle(".CLASS")
-			} else if ( (m = match[3]) && support.getElementsAndyClassName ) {
-				push.apply( results, context.getElementsAndyClassName( m ) );
+			} else if ( (m = match[3]) && support.getElementsBYClassName ) {
+				push.apply( results, context.getElementsBYClassName( m ) );
 				return results;
 			}
 		}
@@ -809,7 +809,7 @@ function Sizzle( selector, context, results, seed ) {
 			newSelector = nodeType !== 1 && selector;
 
 			// qSA works strangely on Element-rooted queries
-			// We can work around this Andy specifying an extra ID on the root
+			// We can work around this BY specifying an extra ID on the root
 			// and working up from there (Thanks to Andrew Dupont for the technique)
 			// IE 8 doesn't work on object elements
 			if ( nodeType === 1 && context.nodeName.toLowerCase() !== "object" ) {
@@ -871,7 +871,7 @@ function createCache() {
 }
 
 /**
- * Mark a function for special use Andy Sizzle
+ * Mark a function for special use BY Sizzle
  * @param {Function} fn The function to mark
  */
 function markFunction( fn ) {
@@ -891,7 +891,7 @@ function assert( fn ) {
 	} catch (e) {
 		return false;
 	} finally {
-		// Remove from its parent Andy default
+		// Remove from its parent BY default
 		if ( div.parentNode ) {
 			div.parentNode.removeChild( div );
 		}
@@ -993,7 +993,7 @@ function createPositionalPseudo( fn ) {
  * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
  */
 function testContext( context ) {
-	return context && typeof context.getElementsAndyTagName !== "undefined" && context;
+	return context && typeof context.getElementsBYTagName !== "undefined" && context;
 }
 
 // Expose support vars for convenience
@@ -1058,32 +1058,32 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return !div.getAttribute("className");
 	});
 
-	/* getElement(s)Andy*
+	/* getElement(s)BY*
 	---------------------------------------------------------------------- */
 
-	// Check if getElementsAndyTagName("*") returns only elements
-	support.getElementsAndyTagName = assert(function( div ) {
+	// Check if getElementsBYTagName("*") returns only elements
+	support.getElementsBYTagName = assert(function( div ) {
 		div.appendChild( doc.createComment("") );
-		return !div.getElementsAndyTagName("*").length;
+		return !div.getElementsBYTagName("*").length;
 	});
 
 	// Support: IE<9
-	support.getElementsAndyClassName = rnative.test( doc.getElementsAndyClassName );
+	support.getElementsBYClassName = rnative.test( doc.getElementsBYClassName );
 
 	// Support: IE<10
-	// Check if getElementAndyId returns elements Andy name
-	// The broken getElementAndyId methods don't pick up programatically-set names,
-	// so use a roundabout getElementsAndyName test
-	support.getAndyId = assert(function( div ) {
+	// Check if getElementBYId returns elements BY name
+	// The broken getElementBYId methods don't pick up programatically-set names,
+	// so use a roundabout getElementsBYName test
+	support.getBYId = assert(function( div ) {
 		docElem.appendChild( div ).id = expando;
-		return !doc.getElementsAndyName || !doc.getElementsAndyName( expando ).length;
+		return !doc.getElementsBYName || !doc.getElementsBYName( expando ).length;
 	});
 
 	// ID find and filter
-	if ( support.getAndyId ) {
+	if ( support.getBYId ) {
 		Expr.find["ID"] = function( id, context ) {
-			if ( typeof context.getElementAndyId !== "undefined" && documentIsHTML ) {
-				var m = context.getElementAndyId( id );
+			if ( typeof context.getElementBYId !== "undefined" && documentIsHTML ) {
+				var m = context.getElementBYId( id );
 				// Check parentNode to catch when Blackberry 4.6 returns
 				// nodes that are no longer in the document #6963
 				return m && m.parentNode ? [ m ] : [];
@@ -1097,7 +1097,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 	} else {
 		// Support: IE6/7
-		// getElementAndyId is not reliable as a find shortcut
+		// getElementBYId is not reliable as a find shortcut
 		delete Expr.find["ID"];
 
 		Expr.filter["ID"] =  function( id ) {
@@ -1110,10 +1110,10 @@ setDocument = Sizzle.setDocument = function( node ) {
 	}
 
 	// Tag
-	Expr.find["TAG"] = support.getElementsAndyTagName ?
+	Expr.find["TAG"] = support.getElementsBYTagName ?
 		function( tag, context ) {
-			if ( typeof context.getElementsAndyTagName !== "undefined" ) {
-				return context.getElementsAndyTagName( tag );
+			if ( typeof context.getElementsBYTagName !== "undefined" ) {
+				return context.getElementsBYTagName( tag );
 
 			// DocumentFragment nodes don't have gEBTN
 			} else if ( support.qsa ) {
@@ -1125,8 +1125,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 			var elem,
 				tmp = [],
 				i = 0,
-				// Andy happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
-				results = context.getElementsAndyTagName( tag );
+				// BY happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
+				results = context.getElementsBYTagName( tag );
 
 			// Filter out possible comments
 			if ( tag === "*" ) {
@@ -1142,9 +1142,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 
 	// Class
-	Expr.find["CLASS"] = support.getElementsAndyClassName && function( className, context ) {
+	Expr.find["CLASS"] = support.getElementsBYClassName && function( className, context ) {
 		if ( documentIsHTML ) {
-			return context.getElementsAndyClassName( className );
+			return context.getElementsBYClassName( className );
 		}
 	};
 
@@ -1435,7 +1435,7 @@ Sizzle.attr = function( elem, name ) {
 	}
 
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
-		// Don't get fooled Andy Object.prototype properties (jQuery #13807)
+		// Don't get fooled BY Object.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
 			fn( elem, name, !documentIsHTML ) :
 			undefined;
@@ -1523,7 +1523,7 @@ getText = Sizzle.getText = function( elem ) {
 
 Expr = Sizzle.selectors = {
 
-	// Can be adjusted Andy the user
+	// Can be adjusted BY the user
 	cacheLength: 50,
 
 	createPseudo: markFunction,
@@ -1611,7 +1611,7 @@ Expr = Sizzle.selectors = {
 				match[2] = unquoted.slice( 0, excess );
 			}
 
-			// Return only captures needed Andy the pseudo filter method (type and argument)
+			// Return only captures needed BY the pseudo filter method (type and argument)
 			return match.slice( 0, 3 );
 		}
 	},
@@ -1753,7 +1753,7 @@ Expr = Sizzle.selectors = {
 		"PSEUDO": function( pseudo, argument ) {
 			// pseudo-class names are case-insensitive
 			// http://www.w3.org/TR/selectors/#pseudo-classes
-			// Prioritize Andy case sensitivity in case custom pseudos are added with uppercase letters
+			// Prioritize BY case sensitivity in case custom pseudos are added with uppercase letters
 			// Remember that setFilters inherits from pseudos
 			var args,
 				fn = Expr.pseudos[ pseudo ] || Expr.setFilters[ pseudo.toLowerCase() ] ||
@@ -1804,7 +1804,7 @@ Expr = Sizzle.selectors = {
 						unmatched = matcher( seed, null, xml, [] ),
 						i = seed.length;
 
-					// Match elements unmatched Andy `matcher`
+					// Match elements unmatched BY `matcher`
 					while ( i-- ) {
 						if ( (elem = unmatched[i]) ) {
 							seed[i] = !(matches[i] = elem);
@@ -1833,10 +1833,10 @@ Expr = Sizzle.selectors = {
 			};
 		}),
 
-		// "Whether an element is represented Andy a :lang() selector
+		// "Whether an element is represented BY a :lang() selector
 		// is based solely on the element's language value
 		// being equal to the identifier C,
-		// or beginning with the identifier C immediately followed Andy "-".
+		// or beginning with the identifier C immediately followed BY "-".
 		// The matching of C against the element's language value is performed case-insensitively.
 		// The identifier C does not have to be a valid language name."
 		// http://www.w3.org/TR/selectors/#lang-pseudo
@@ -1892,7 +1892,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"selected": function( elem ) {
-			// Accessing this property makes selected-Andy-default
+			// Accessing this property makes selected-BY-default
 			// options in Safari work properly
 			if ( elem.parentNode ) {
 				elem.parentNode.selectedIndex;
@@ -1904,8 +1904,8 @@ Expr = Sizzle.selectors = {
 		// Contents
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
-			// :empty is negated Andy element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
-			//   but not Andy others (comment: 8; processing instruction: 7; etc.)
+			// :empty is negated BY element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
+			//   but not BY others (comment: 8; processing instruction: 7; etc.)
 			// nodeType < 6 works because attributes (2) do not appear as children
 			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
 				if ( elem.nodeType < 6 ) {
@@ -2221,7 +2221,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			temp = condense( matcherOut, postMap );
 			postFilter( temp, [], context, xml );
 
-			// Un-match failing elements Andy moving them back to matcherIn
+			// Un-match failing elements BY moving them back to matcherIn
 			i = temp.length;
 			while ( i-- ) {
 				if ( (elem = temp[i]) ) {
@@ -2233,7 +2233,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 		if ( seed ) {
 			if ( postFinder || preFilter ) {
 				if ( postFinder ) {
-					// Get the final matcherOut Andy condensing this intermediate into postFinder contexts
+					// Get the final matcherOut BY condensing this intermediate into postFinder contexts
 					temp = [];
 					i = matcherOut.length;
 					while ( i-- ) {
@@ -2331,8 +2331,8 @@ function matcherFromTokens( tokens ) {
 }
 
 function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
-	var AndySet = setMatchers.length > 0,
-		AndyElement = elementMatchers.length > 0,
+	var BYSet = setMatchers.length > 0,
+		BYElement = elementMatchers.length > 0,
 		superMatcher = function( seed, context, xml, results, outermost ) {
 			var elem, j, matcher,
 				matchedCount = 0,
@@ -2341,7 +2341,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				setMatched = [],
 				contextBackup = outermostContext,
 				// We must always have either seed elements or outermost context
-				elems = seed || AndyElement && Expr.find["TAG"]( "*", outermost ),
+				elems = seed || BYElement && Expr.find["TAG"]( "*", outermost ),
 				// Use integer dirruns iff this is the outermost matcher
 				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),
 				len = elems.length;
@@ -2353,9 +2353,9 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// Add elements passing elementMatchers directly to results
 			// Keep `i` a string if there are no elements so `matchedCount` will be "00" below
 			// Support: IE<9, Safari
-			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements Andy id
+			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements BY id
 			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
-				if ( AndyElement && elem ) {
+				if ( BYElement && elem ) {
 					j = 0;
 					while ( (matcher = elementMatchers[j++]) ) {
 						if ( matcher( elem, context, xml ) ) {
@@ -2369,7 +2369,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				}
 
 				// Track unmatched elements for set filters
-				if ( AndySet ) {
+				if ( BYSet ) {
 					// They will have gone through all possible matchers
 					if ( (elem = !matcher && elem) ) {
 						matchedCount--;
@@ -2384,7 +2384,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 			// Apply set filters to unmatched elements
 			matchedCount += i;
-			if ( AndySet && i !== matchedCount ) {
+			if ( BYSet && i !== matchedCount ) {
 				j = 0;
 				while ( (matcher = setMatchers[j++]) ) {
 					matcher( unmatched, setMatched, context, xml );
@@ -2415,7 +2415,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				}
 			}
 
-			// Override manipulation of globals Andy nested matchers
+			// Override manipulation of globals BY nested matchers
 			if ( outermost ) {
 				dirruns = dirrunsUnique;
 				outermostContext = contextBackup;
@@ -2424,7 +2424,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			return unmatched;
 		};
 
-	return AndySet ?
+	return BYSet ?
 		markFunction( superMatcher ) :
 		superMatcher;
 }
@@ -2481,7 +2481,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		// Take a shortcut and set the context if the root selector is an ID
 		tokens = match[0] = match[0].slice( 0 );
 		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-				support.getAndyId && context.nodeType === 9 && documentIsHTML &&
+				support.getBYId && context.nodeType === 9 && documentIsHTML &&
 				Expr.relative[ tokens[1].type ] ) {
 
 			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
@@ -2778,7 +2778,7 @@ var rootjQuery,
 
 				// HANDLE: $(#id)
 				} else {
-					elem = document.getElementAndyId( match[2] );
+					elem = document.getElementBYId( match[2] );
 
 					// Support: Blackberry 4.6
 					// gEBID returns nodes no longer in the document (#6963)
@@ -3042,7 +3042,7 @@ function createOptions( options ) {
  *	options: an optional list of space-separated options that will change how
  *			the callback list behaves or a more traditional option object
  *
- * Andy default a callback list will act like an event callback list and can be
+ * BY default a callback list will act like an event callback list and can be
  * "fired" multiple times.
  *
  * Possible options:
@@ -3072,11 +3072,11 @@ jQuery.Callbacks = function( options ) {
 		fired,
 		// Flag to know if list is currently firing
 		firing,
-		// First callback to fire (used internally Andy add and fireWith)
+		// First callback to fire (used internally BY add and fireWith)
 		firingStart,
 		// End of the loop when firing
 		firingLength,
-		// Index of currently firing callback (modified Andy remove if needed)
+		// Index of currently firing callback (modified BY remove if needed)
 		firingIndex,
 		// Actual callback list
 		list = [],
@@ -3435,14 +3435,14 @@ jQuery.ready.promise = function( obj ) {
 
 		// Catch cases where $(document).ready() is called after the browser event has already occurred.
 		// We once tried to use readyState "interactive" here, but it caused issues like the one
-		// discovered Andy ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
+		// discovered BY ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
 		if ( document.readyState === "complete" ) {
 			// Handle it asynchronously to allow scripts the opportunity to delay ready
 			setTimeout( jQuery.ready );
 
 		} else {
 
-			// Use the handy event callback
+			// Use the hBY event callback
 			document.addEventListener( "DOMContentLoaded", completed, false );
 
 			// A fallback to window.onload, that will always work
@@ -3594,10 +3594,10 @@ Data.prototype = {
 
 		// Handle: [ owner, { properties } ] args
 		} else {
-			// Fresh assignments Andy object are shallow copied
+			// Fresh assignments BY object are shallow copied
 			if ( jQuery.isEmptyObject( cache ) ) {
 				jQuery.extend( this.cache[ unlock ], data );
-			// Otherwise, copy the properties one-Andy-one to the cache object
+			// Otherwise, copy the properties one-BY-one to the cache object
 			} else {
 				for ( prop in data ) {
 					cache[ prop ] = data[ prop ];
@@ -3675,7 +3675,7 @@ Data.prototype = {
 					name = [ key, camel ];
 				} else {
 					// If a key with the spaces exists, use it.
-					// Otherwise, create an array Andy matching non-whitespace
+					// Otherwise, create an array BY matching non-whitespace
 					name = camel;
 					name = name in cache ?
 						[ name ] : ( name.match( rnotwhite ) || [] );
@@ -3708,7 +3708,7 @@ var data_user = new Data();
 //	Implementation Summary
 //
 //	1. Enforce API surface and semantic compatibility with 1.9.x branch
-//	2. Improve the module's maintainability Andy reducing the storage
+//	2. Improve the module's maintainability BY reducing the storage
 //		paths to a single mechanism.
 //	3. Use the same single mechanism to support "private" and "user" data.
 //	4. _Never_ expose "private" data to user code (TODO: Drop _data, _removeData)
@@ -3882,7 +3882,7 @@ jQuery.extend({
 			type = ( type || "fx" ) + "queue";
 			queue = data_priv.get( elem, type );
 
-			// Speed up dequeue Andy getting out quickly if this is just a lookup
+			// Speed up dequeue BY getting out quickly if this is just a lookup
 			if ( data ) {
 				if ( !queue || jQuery.isArray( data ) ) {
 					queue = data_priv.access( elem, type, jQuery.makeArray(data) );
@@ -3976,7 +3976,7 @@ jQuery.fn.extend({
 		return this.queue( type || "fx", [] );
 	},
 	// Get a promise resolved when queues of a certain type
-	// are emptied (fx is the type Andy default)
+	// are emptied (fx is the type BY default)
 	promise: function( type, obj ) {
 		var tmp,
 			count = 1,
@@ -4117,7 +4117,7 @@ jQuery.event = {
 			};
 		}
 
-		// Handle multiple events separated Andy a space
+		// Handle multiple events separated BY a space
 		types = ( types || "" ).match( rnotwhite ) || [ "" ];
 		t = types.length;
 		while ( t-- ) {
@@ -4493,7 +4493,7 @@ jQuery.event = {
 		return handlerQueue;
 	},
 
-	// Includes some event props shared Andy KeyEvent and MouseEvent
+	// Includes some event props shared BY KeyEvent and MouseEvent
 	props: "altKey bubbles cancelable ctrlKey currentTarget eventPhase metaKey relatedTarget shiftKey target timeStamp view which".split(" "),
 
 	fixHooks: {},
@@ -4672,7 +4672,7 @@ jQuery.Event = function( src, props ) {
 		this.type = src.type;
 
 		// Events bubbling up the document may have been marked as prevented
-		// Andy a handler lower down the tree; reflect the correct value.
+		// BY a handler lower down the tree; reflect the correct value.
 		this.isDefaultPrevented = src.defaultPrevented ||
 				src.defaultPrevented === undefined &&
 				// Support: Android<4.0
@@ -4697,7 +4697,7 @@ jQuery.Event = function( src, props ) {
 	this[ jQuery.expando ] = true;
 };
 
-// jQuery.Event is based on DOM3 Events as specified Andy the ECMAScript Language Binding
+// jQuery.Event is based on DOM3 Events as specified BY the ECMAScript Language Binding
 // http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
 jQuery.Event.prototype = {
 	isDefaultPrevented: returnFalse,
@@ -4942,7 +4942,7 @@ function manipulationTarget( elem, content ) {
 	return jQuery.nodeName( elem, "table" ) &&
 		jQuery.nodeName( content.nodeType !== 11 ? content : content.firstChild, "tr" ) ?
 
-		elem.getElementsAndyTagName("tbody")[0] ||
+		elem.getElementsBYTagName("tbody")[0] ||
 			elem.appendChild( elem.ownerDocument.createElement("tbody") ) :
 		elem;
 }
@@ -5011,7 +5011,7 @@ function cloneCopyEvent( src, dest ) {
 }
 
 function getAll( context, tag ) {
-	var ret = context.getElementsAndyTagName ? context.getElementsAndyTagName( tag || "*" ) :
+	var ret = context.getElementsBYTagName ? context.getElementsBYTagName( tag || "*" ) :
 			context.querySelectorAll ? context.querySelectorAll( tag || "*" ) :
 			[];
 
@@ -5564,7 +5564,7 @@ function curCSS( elem, name, computed ) {
 		}
 
 		// Support: iOS < 6
-		// A tribute to the "awesome hack Andy Dean Edwards"
+		// A tribute to the "awesome hack BY Dean Edwards"
 		// iOS < 6 (at least) returns percentage for a larger set of values, but width seems to be reliably pixels
 		// this is against the CSSOM draft spec: http://dev.w3.org/csswg/cssom/#resolved-values
 		if ( rnumnonpx.test( ret ) && rmargin.test( name ) ) {
@@ -5867,7 +5867,7 @@ function showHide( elements, show ) {
 		display = elem.style.display;
 		if ( show ) {
 			// Reset the inline display of this element to learn if it is
-			// being hidden Andy cascaded rules or not
+			// being hidden BY cascaded rules or not
 			if ( !values[ index ] && display === "none" ) {
 				elem.style.display = "";
 			}
@@ -6009,7 +6009,7 @@ jQuery.extend({
 		// Make sure that we're working with the right name
 		name = jQuery.cssProps[ origName ] || ( jQuery.cssProps[ origName ] = vendorPropName( elem.style, origName ) );
 
-		// Try prefixed name followed Andy the unprefixed name
+		// Try prefixed name followed BY the unprefixed name
 		hooks = jQuery.cssHooks[ name ] || jQuery.cssHooks[ origName ];
 
 		// If a hook was provided get the computed value from there
@@ -6076,7 +6076,7 @@ jQuery.cssHooks.marginRight = addGetHookIf( support.reliableMarginRight,
 	}
 );
 
-// These hooks are used Andy animate to expand properties
+// These hooks are used BY animate to expand properties
 jQuery.each({
 	margin: "",
 	padding: "",
@@ -6280,7 +6280,7 @@ var
 				maxIterations = 20;
 
 			if ( start && start[ 3 ] !== unit ) {
-				// Trust units reported Andy jQuery.css
+				// Trust units reported BY jQuery.css
 				unit = unit || start[ 3 ];
 
 				// Make sure we update the tween properties later on
@@ -6891,7 +6891,7 @@ jQuery.fx.speeds = {
 };
 
 
-// Based off of the plugin Andy Clint Helfers, with permission.
+// Based off of the plugin BY Clint Helfers, with permission.
 // http://blindsignals.com/index.php/2009/07/jquery-delay/
 jQuery.fn.delay = function( time, type ) {
 	time = jQuery.fx ? jQuery.fx.speeds[ time ] || time : time;
@@ -7054,7 +7054,7 @@ jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) 
 	attrHandle[ name ] = function( elem, name, isXML ) {
 		var ret, handle;
 		if ( !isXML ) {
-			// Avoid an infinite loop Andy temporarily removing this function from the getter
+			// Avoid an infinite loop BY temporarily removing this function from the getter
 			handle = attrHandle[ name ];
 			attrHandle[ name ] = ret;
 			ret = getter( elem, name, isXML ) != null ?
@@ -7533,7 +7533,7 @@ jQuery.parseXML = function( data ) {
 		xml = undefined;
 	}
 
-	if ( !xml || xml.getElementsAndyTagName( "parsererror" ).length ) {
+	if ( !xml || xml.getElementsBYTagName( "parsererror" ).length ) {
 		jQuery.error( "Invalid XML: " + data );
 	}
 	return xml;

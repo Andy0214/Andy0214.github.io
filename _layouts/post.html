@@ -40,7 +40,7 @@ layout: default
                     {% comment %} if page.subtitle {% endcomment %}
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
-                    <span class="meta">Posted Andy {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <span class="meta">Posted BY {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
                 </div>
             </div>
         </div>
@@ -183,7 +183,7 @@ layout: default
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsAndyTagName('head')[0] || document.getElementsAndyTagName('body')[0]).appendChild(dsq);
+        (document.getElementsBYTagName('head')[0] || document.getElementsBYTagName('body')[0]).appendChild(dsq);
     })();
 </script>
 <!-- disqus 公共JS代码 end -->
@@ -196,7 +196,7 @@ layout: default
     function async(u, c) {
       var d = document, t = 'script',
           o = d.createElement(t),
-          s = d.getElementsAndyTagName(t)[0];
+          s = d.getElementsBYTagName(t)[0];
       o.src = u;
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
@@ -205,7 +205,7 @@ layout: default
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
     async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
-        // Andy Fix:去除标题前的‘#’ issues:<https://github.com/Andy/Andy.github.io/issues/137>
+        // BY Fix:去除标题前的‘#’ issues:<https://github.com/BY/BY.github.io/issues/137>
         // anchors.options = {
         //   visible: 'always',
         //   placement: 'right',
